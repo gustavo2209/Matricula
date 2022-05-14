@@ -31,6 +31,7 @@ namespace Matricula
             if (chkDesarrollo.Checked || chkDiseno.Checked || chkAdmin.Checked || chkOfi.Checked)
             {
                 lblpresentacion.Visible = false;
+                grupo.Text = "";
             }
             else
             {
@@ -51,6 +52,8 @@ namespace Matricula
             {
                 cboDesarrollo.Visible = false;
             }
+            grupo.Text = "";
+            txtPrecio.Text = "";
         }
 
         private void chkDiseno_Click(object sender, EventArgs e)
@@ -64,6 +67,8 @@ namespace Matricula
             {
                 cboDiseno.Visible = false;
             }
+            grupo.Text = "";
+            txtPrecio.Text = "";
         }
 
         private void chkAdmin_Click(object sender, EventArgs e)
@@ -77,6 +82,8 @@ namespace Matricula
             {
                 cboAdmin.Visible = false;
             }
+            grupo.Text = "";
+            txtPrecio.Text = "";
         }
 
         private void chkOfi_Click(object sender, EventArgs e)
@@ -90,6 +97,8 @@ namespace Matricula
             {
                 cboOfi.Visible = false;
             }
+            grupo.Text = "";
+            txtPrecio.Text = "";
         }
 
         // TEXTO DINAMICO GROUP BOX
@@ -134,23 +143,6 @@ namespace Matricula
                 string msg = "";
                 int suma = 0;
 
-                if (cboDesarrollo.Visible)
-                {
-                    lsbCurso.Items.Add(cboDesarrollo.SelectedItem.ToString());
-                }
-                else if (cboDiseno.Visible)
-                {
-                    lsbCurso.Items.Add(cboDiseno.SelectedItem.ToString());
-                }
-                else if (cboAdmin.Visible)
-                {
-                    lsbCurso.Items.Add(cboAdmin.SelectedItem.ToString());
-                }
-                else
-                {
-                    lsbCurso.Items.Add(cboOfi.SelectedItem.ToString());
-                }
-
                 if (rdbManana.Checked)
                 {
                     msg = rdbManana.Text;
@@ -164,16 +156,33 @@ namespace Matricula
                     msg = rdbNoche.Text;
                 }
 
-                lsbFrecuencia.Items.Add(cboDias.SelectedItem.ToString() + " por " + msg);
-                lsbPrecio.Items.Add(txtPrecio.Text);
-
-                foreach (object elemento in lsbPrecio.Items)
+                if (lsbCurso.Items.Contains(grupo.Text))
                 {
-                    suma += Convert.ToInt32(elemento);
+                    MessageBox.Show("Ya seleccionó este curso", "MENSAJE DE ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                {
+                    if(lsbFrecuencia.Items.Contains(cboDias.SelectedItem.ToString() + " por " + msg))
+                    {
+                        MessageBox.Show("Ya seleccionó este horario", "MENSAJE DE ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        lsbCurso.Items.Add(grupo.Text);
+                        lsbFrecuencia.Items.Add(cboDias.SelectedItem.ToString() + " por " + msg);
+                        lsbPrecio.Items.Add("S/. " + txtPrecio.Text);
 
-                lblCantidad.Text = lsbCurso.Items.Count.ToString();
-                lblTotal.Text = "S/. " + suma.ToString();
+                        foreach (object elemento in lsbPrecio.Items)
+                        {
+                            //suma += Convert.ToInt32(elemento);
+                            
+                            suma += Convert.ToInt32(elemento.ToString().Substring(elemento.ToString().IndexOf("S/.") + 4));
+                        }
+
+                        lblCantidad.Text = lsbCurso.Items.Count.ToString();
+                        lblTotal.Text = "S/. " + suma.ToString();
+                    }
+                }
             }
         }
 

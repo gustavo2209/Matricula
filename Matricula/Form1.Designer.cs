@@ -307,6 +307,7 @@ namespace Matricula
             this.lsbCurso.FormattingEnabled = true;
             this.lsbCurso.Location = new System.Drawing.Point(23, 318);
             this.lsbCurso.Name = "lsbCurso";
+            this.lsbCurso.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lsbCurso.Size = new System.Drawing.Size(272, 134);
             this.lsbCurso.TabIndex = 14;
             // 
