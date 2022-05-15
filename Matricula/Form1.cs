@@ -173,9 +173,7 @@ namespace Matricula
                         lsbPrecio.Items.Add("S/. " + txtPrecio.Text);
 
                         foreach (object elemento in lsbPrecio.Items)
-                        {
-                            //suma += Convert.ToInt32(elemento);
-                            
+                        {                           
                             suma += Convert.ToInt32(elemento.ToString().Substring(elemento.ToString().IndexOf("S/.") + 4));
                         }
 
@@ -191,6 +189,61 @@ namespace Matricula
             if(lsbCurso.Items.Count == 0 || lsbFrecuencia.Items.Count == 0 || lsbPrecio.Items.Count == 0)
             {
                 MessageBox.Show("No hay elementos en las listas", "MENSAJE DE ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if(lsbCurso.SelectedIndex == -1 && lsbFrecuencia.SelectedIndex == -1 && lsbPrecio.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar elemento de la lista", "MENSAJE DE ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    int i = lsbCurso.SelectedIndex;
+                    int suma = 0;
+
+                    lsbCurso.Items.RemoveAt(i);
+                    lsbFrecuencia.Items.RemoveAt(i);
+                    lsbPrecio.Items.RemoveAt(i);
+
+                    lblCantidad.Text = lsbCurso.Items.Count.ToString();
+
+                    foreach (object elemento in lsbPrecio.Items)
+                    {
+                        suma += Convert.ToInt32(elemento.ToString().Substring(elemento.ToString().IndexOf("S/.") + 4));
+                    }
+
+                    lblTotal.Text = "S/. " + suma.ToString();
+                }
+            }
+        }
+
+        private void lsbCurso_Click(object sender, EventArgs e)
+        {
+            if (lsbCurso.SelectedIndex != -1)
+            {
+                lsbFrecuencia.SetSelected(lsbCurso.SelectedIndex, true);
+
+                lsbPrecio.SetSelected(lsbCurso.SelectedIndex, true);
+            }
+        }
+
+        private void lsbFrecuencia_Click(object sender, EventArgs e)
+        {
+            if (lsbFrecuencia.SelectedIndex != -1)
+            {
+                lsbCurso.SetSelected(lsbFrecuencia.SelectedIndex, true);
+
+                lsbPrecio.SetSelected(lsbFrecuencia.SelectedIndex, true);
+            }
+        }
+
+        private void lsbPrecio_Click(object sender, EventArgs e)
+        {
+            if (lsbPrecio.SelectedIndex != -1)
+            {
+                lsbCurso.SetSelected(lsbPrecio.SelectedIndex, true);
+
+                lsbFrecuencia.SetSelected(lsbPrecio.SelectedIndex, true);
             }
         }
     }

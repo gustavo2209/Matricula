@@ -310,6 +310,7 @@ namespace Matricula
             this.lsbCurso.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lsbCurso.Size = new System.Drawing.Size(272, 134);
             this.lsbCurso.TabIndex = 14;
+            this.lsbCurso.Click += new System.EventHandler(this.lsbCurso_Click);
             // 
             // lsbFrecuencia
             // 
@@ -318,6 +319,7 @@ namespace Matricula
             this.lsbFrecuencia.Name = "lsbFrecuencia";
             this.lsbFrecuencia.Size = new System.Drawing.Size(286, 134);
             this.lsbFrecuencia.TabIndex = 15;
+            this.lsbFrecuencia.Click += new System.EventHandler(this.lsbFrecuencia_Click);
             // 
             // lsbPrecio
             // 
@@ -326,6 +328,7 @@ namespace Matricula
             this.lsbPrecio.Name = "lsbPrecio";
             this.lsbPrecio.Size = new System.Drawing.Size(153, 134);
             this.lsbPrecio.TabIndex = 16;
+            this.lsbPrecio.Click += new System.EventHandler(this.lsbPrecio_Click);
             // 
             // lblCantidad
             // 
