@@ -106,25 +106,25 @@ namespace Matricula
         private void cboDesarrollo_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextoDinamico(cboDesarrollo);
-            txtPrecio.Text = "200";
+            txtPrecio.Text = "S/. 200";
         }
 
         private void cboDiseno_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextoDinamico(cboDiseno);
-            txtPrecio.Text = "150";
+            txtPrecio.Text = "S/. 150";
         }
 
         private void cboAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextoDinamico(cboAdmin);
-            txtPrecio.Text = "220";
+            txtPrecio.Text = "S/. 220";
         }
 
         private void cboOfi_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextoDinamico(cboOfi);
-            txtPrecio.Text = "120";
+            txtPrecio.Text = "S/. 120";
         }
 
         public void TextoDinamico(ComboBox combo)
@@ -170,7 +170,7 @@ namespace Matricula
                     {
                         lsbCurso.Items.Add(grupo.Text);
                         lsbFrecuencia.Items.Add(cboDias.SelectedItem.ToString() + " por " + msg);
-                        lsbPrecio.Items.Add("S/. " + txtPrecio.Text);
+                        lsbPrecio.Items.Add(txtPrecio.Text);
 
                         foreach (object elemento in lsbPrecio.Items)
                         {                           
