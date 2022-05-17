@@ -40,7 +40,6 @@ namespace Matricula
             this.cboDiseno = new System.Windows.Forms.ComboBox();
             this.cboAdmin = new System.Windows.Forms.ComboBox();
             this.cboOfi = new System.Windows.Forms.ComboBox();
-            this.lblpresentacion = new System.Windows.Forms.Label();
             this.grupo = new System.Windows.Forms.GroupBox();
             this.rdbNoche = new System.Windows.Forms.RadioButton();
             this.rdbManana = new System.Windows.Forms.RadioButton();
@@ -56,6 +55,7 @@ namespace Matricula
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnElimina = new System.Windows.Forms.Button();
+            this.lblpresentacion = new System.Windows.Forms.Label();
             this.grupo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -192,14 +192,6 @@ namespace Matricula
             this.cboOfi.TabIndex = 9;
             this.cboOfi.Visible = false;
             this.cboOfi.SelectedIndexChanged += new System.EventHandler(this.cboOfi_SelectedIndexChanged);
-            // 
-            // lblpresentacion
-            // 
-            this.lblpresentacion.Image = global::Matricula.Properties.Resources.x_mickb;
-            this.lblpresentacion.Location = new System.Drawing.Point(186, 76);
-            this.lblpresentacion.Name = "lblpresentacion";
-            this.lblpresentacion.Size = new System.Drawing.Size(548, 149);
-            this.lblpresentacion.TabIndex = 10;
             // 
             // grupo
             // 
@@ -358,6 +350,14 @@ namespace Matricula
             this.btnElimina.Text = "Elimina Seleccionados";
             this.btnElimina.UseVisualStyleBackColor = true;
             this.btnElimina.Click += new System.EventHandler(this.btnElimina_Click);
+            // 
+            // lblpresentacion
+            // 
+            this.lblpresentacion.Image = global::Matricula.Properties.Resources.x_mickb;
+            this.lblpresentacion.Location = new System.Drawing.Point(186, 76);
+            this.lblpresentacion.Name = "lblpresentacion";
+            this.lblpresentacion.Size = new System.Drawing.Size(548, 149);
+            this.lblpresentacion.TabIndex = 10;
             // 
             // Form1
             // 

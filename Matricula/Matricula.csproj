@@ -83,5 +83,8 @@
   <ItemGroup>
     <None Include="Resources\x_mickb.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
