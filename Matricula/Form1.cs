@@ -178,7 +178,7 @@ namespace Matricula
                         }
 
                         lblCantidad.Text = lsbCurso.Items.Count.ToString();
-                        lblTotal.Text = "S/. " + suma.ToString();
+                        lblTotal.Text = "S/. " + suma;
                     }
                 }
             }
